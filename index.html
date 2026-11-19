@@ -523,11 +523,10 @@ document.addEventListener('input',e=>{if(e.target.closest&&e.target.closest('#tr
 function syncFrames(){gal.querySelectorAll('.polaroid').forEach(p=>{const ph=p.querySelector('.photo'),has=!!ph.querySelector('img');ph.classList.toggle('empty',!has);p.classList.toggle('noimg',!has);if(!has)ph.innerHTML=''})}
 function syncLinks(){document.querySelectorAll('a.playlink').forEach(a=>{const h=(a.getAttribute('href')||'').trim();a.classList.toggle('nolink',!h||h==='#'||/^PASTE_/i.test(h))})}
 syncFrames();syncLinks();
-</script><<!-- Khung nhạc YouTube ẩn -->
+  <!-- Khung nhạc YouTube ẩn -->
 <div id="yt-music" style="display:none;"></div>
 
 <script>
-  // 1. Tải thư viện YouTube IFrame API
   var tag = document.createElement('script');
   tag.src = "https://youtube.com";
   document.head.appendChild(tag);
@@ -537,19 +536,20 @@ syncFrames();syncLinks();
     player = new YT.Player('yt-music', {
       height: '0',
       width: '0',
-      videoId: 'kZnpzY7A1u4&list=RDGtmrOux7rgg&index=2', // 
+      videoId: 'kZnpzY7A1u4',
       playerVars: {
         'autoplay': 0,
         'loop': 1,
-        'playlist': 'kZnpzY7A1u4&list=RDGtmrOux7rgg&index=2' // 
+        'playlist': 'kZnpzY7A1u4'
+      }
     });
   }
 
-  // 2. Tự động phát nhạc khi người dùng chạm/bấm chuột lần đầu vào trang web
   document.addEventListener('click', function() {
     if (player && player.playVideo) {
       player.playVideo();
     }
   }, { once: true });
 </script>
-></html>
+
+</script></body></html>
